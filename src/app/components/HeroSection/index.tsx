@@ -3,13 +3,15 @@ import image from "./Banner-test.png";
 
 const HeroSection = () => {
   return (
-    <section className="hero">
+    <section className="w-full max-h-3">
       <Image
         data-testid="hero-image"
         src={image}
         alt=""
         placeholder="blur"
-        fill
+    
+        // height="500"
+        // width="1440"
         priority
       />
     </section>
