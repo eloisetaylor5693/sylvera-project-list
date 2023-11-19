@@ -7,7 +7,7 @@ interface ProjectListProps {
 
 const ProjectList = ({ projects: items }: ProjectListProps): JSX.Element => {
   return (
-    <ul className="p-16 bg-slate-500 rounded-lg">
+    <ul className="">
       {items.map((projectName, index) => (
         <li key={index} data-testid={index}>
           <Link href={`/projects/${projectName}`}>{projectName}</Link>

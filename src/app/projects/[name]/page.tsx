@@ -43,7 +43,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-6xl text-white mt-50">Project {params.name}</h1>
+      <h1 className="text-6xl mt-50">Project {params.name}</h1>
 
       {!project?.topTenFeedEntries && (
         <p className="p-16 bg-slate-500 rounded-lg text-white text-3xl">

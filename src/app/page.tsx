@@ -21,8 +21,8 @@ export default async function Home() {
   const projects = await getProjects();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-6xl text-white mt-50">Projects</h1>
+    <main className="flex min-h-screen flex-col items-center ">
+      <h1 className="text-6xl mt-20 mb-16 text-black">Projects</h1>
 
       {projects && <ProjectList projects={projects} />}
     </main>
