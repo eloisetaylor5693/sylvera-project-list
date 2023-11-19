@@ -2,7 +2,8 @@ import ProjectList from "./components/ProjectList";
 
 async function getProjects() {
   const response = await fetch(
-    "https://pm25.lass-net.org/API-1.0.0/project/all/"
+    "https://pm25.lass-net.org/API-1.0.0/project/all/",
+    { next: { revalidate: 3600 } }
   );
 
   if (!response.ok) {
