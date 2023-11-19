@@ -1,14 +1,16 @@
 import React from "react";
 
 interface ProjectListProps {
-  items: string[];
+  projects: string[];
 }
 
-const ProjectList = ({ items }: ProjectListProps): JSX.Element => {
+const ProjectList = ({ projects: items }: ProjectListProps): JSX.Element => {
   return (
     <ul>
-      {items.map((item, index) => (
-        <li key={index} data-testid={index}>{item}</li>
+      {items.map((projectName, index) => (
+        <li key={index} data-testid={index}>
+          {projectName}
+        </li>
       ))}
     </ul>
   );
