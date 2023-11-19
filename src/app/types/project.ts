@@ -1,4 +1,4 @@
-type FeedEntry = {
+export type FeedEntry = {
   deviceId: string;
   latitude: number;
   longitude: number;
