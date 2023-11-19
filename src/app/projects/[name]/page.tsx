@@ -18,13 +18,13 @@ async function getProject(name: string) {
   const project: Project = {
     name: data.name,
     totalFeedEntries: data.num_of_records,
-    topTenFeedEntries: data.feeds.slice(0, 10).map(
-      (device: { device_id: any; gps_lat: any; gps_lon: any }) => ({
+    topTenFeedEntries: data.feeds
+      .slice(0, 10)
+      .map((device: { device_id: any; gps_lat: any; gps_lon: any }) => ({
         deviceId: device.device_id,
         latitude: device.gps_lat,
         longitude: device.gps_lon,
-      })
-    ),
+      })),
   } as Project;
 
   return project;
@@ -44,6 +44,12 @@ export default async function ProjectPage({ params }: ProjectProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-6xl text-white mt-50">Project {params.name}</h1>
+
+      {!!project && (
+        <p className="p-16 bg-slate-500 rounded-lg text-white text-3xl">
+          Sorry, no data found
+        </p>
+      )}
 
       <div className="mt-5 grid grid-cols-2 gap-2">
         {project &&
