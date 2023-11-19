@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface ProjectListProps {
@@ -9,7 +10,7 @@ const ProjectList = ({ projects: items }: ProjectListProps): JSX.Element => {
     <ul>
       {items.map((projectName, index) => (
         <li key={index} data-testid={index}>
-          {projectName}
+          <Link href={`/projects/${projectName}`}>{projectName}</Link>
         </li>
       ))}
     </ul>

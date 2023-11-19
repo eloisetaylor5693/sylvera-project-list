@@ -10,6 +10,8 @@ describe("<ProjectList />", () => {
       cy.get('[data-testid="1"]')
         .should("be.visible")
         .should("contain", "thunder");
+
+      cy.contains("thunder").should("have.attr", "href", "/projects/thunder");
     });
   });
 
