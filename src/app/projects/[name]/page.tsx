@@ -55,6 +55,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
         {project &&
           project.topTenFeedEntries.map((entry: FeedEntry) => (
             <ProjectCard
+              key={entry.deviceId}
               deviceId={entry.deviceId}
               latitude={entry.latitude}
               longitude={entry.longitude}
