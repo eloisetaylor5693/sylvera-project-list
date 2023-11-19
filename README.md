@@ -4,19 +4,19 @@ Deployed here using Vercel: <https://sylvera-project-list.vercel.app>
 
 ## Getting Started
 
-First, run the development server:
+### Running the app
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Testing
+
+Run in cli: `npm run cy:run`     
+Run with cypress debugging tools: `npm run cy:open`
 
 ## TODO
 
