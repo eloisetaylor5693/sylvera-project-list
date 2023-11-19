@@ -28,6 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Decisions
 
-- Used app router 
+- Used app router because it's the preferred method by nextjs, and thought I could leverage SSR out-of-the-box 
 - Didn't use tRPC because I'm not practised with it, so would have slowed me down.  I think this would have been a more safe choice if I had more time since the response would have been typed
 - Used cypress component testing instead of react testing library to rapidly create tests.  Thought it was the safest choice given the time limit
+- Using vercel to host the website for optimal integration with nextjs, and for the rapid configuration of deployment
