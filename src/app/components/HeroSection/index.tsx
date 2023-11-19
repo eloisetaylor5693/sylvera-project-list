@@ -1,7 +1,7 @@
 import Image from "next/image";
 import image from "./Banner-test.png";
 
-const HeroSection = () => {
+const HeroSection = (): JSX.Element  => {
   return (
     <section className="w-full max-h-3">
       <Image
