@@ -32,3 +32,8 @@ Run with cypress debugging tools: `npm run cy:open`
 - Didn't use tRPC because I'm not practised with it, so would have slowed me down.  I think this would have been a more safe choice if I had more time since the response would have been typed
 - Used cypress component testing instead of react testing library to rapidly create tests.  Thought it was the safest choice given the time limit
 - Using vercel to host the website for optimal integration with nextjs, and for the rapid configuration of deployment
+
+
+## Project with data 
+
+https://sylvera-project-list.vercel.app/projects/airbox
