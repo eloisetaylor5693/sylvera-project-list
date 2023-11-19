@@ -8,7 +8,7 @@ const ProjectList = ({ items }: ProjectListProps): JSX.Element => {
   return (
     <ul>
       {items.map((item, index) => (
-        <li key={index}>{item}</li>
+        <li key={index} data-testid={index}>{item}</li>
       ))}
     </ul>
   );
