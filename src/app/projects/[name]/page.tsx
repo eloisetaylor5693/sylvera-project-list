@@ -1,6 +1,6 @@
 import ProjectCard from "@/app/components/ProjectCard";
-import type { Project } from "@/app/types";
-import { FeedEntry } from "@/app/types/project";
+
+import Project, { FeedEntry } from "@/app/types/project";
 
 async function getProject(name: string) {
   const response = await fetch(
