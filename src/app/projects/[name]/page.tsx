@@ -1,3 +1,5 @@
+import ProjectCard from "@/app/components/ProjectCard";
+
 async function getProject(name: string) {
   const response = await fetch(
     `https://pm25.lass-net.org/API-1.0.0/project/${name}/latest/`,
@@ -26,7 +28,8 @@ export default async function Project({ params }: ProjectProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-6xl text-white mt-50">Project {params.name}</h1>
-      <code className="text-black">{project.source}</code>
+
+      <ProjectCard deviceId="AABCX" latitude={0} longitude={0} />
     </main>
   );
 }
