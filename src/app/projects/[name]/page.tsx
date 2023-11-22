@@ -2,7 +2,9 @@ import ProjectCard from "@/app/components/ProjectCard";
 
 import Project, { FeedEntry } from "@/app/types/project";
 
-async function getProject(name: string) {
+const pageSize = 10;
+
+async function getProject(name: string, page: number = 1) {
   const response = await fetch(
     `https://pm25.lass-net.org/API-1.0.0/project/${name}/latest/`,
     { next: { revalidate: 3600 } }
@@ -15,16 +17,32 @@ async function getProject(name: string) {
 
   const data = await response.json();
 
+  // 1 = 0
+  // 2 = 10
+  const skip = (page - 1) * pageSize;
+
+  const takeCount = page * pageSize;
+
+  console.log({
+    page,
+    pageSize,
+    takeCount,
+    skip,
+    calc: data.num_of_records - pageSize,
+    count: data.feeds.slice(skip, takeCount).length,
+  });
+  const pagedFeeds = data.feeds.slice(skip, takeCount);
+
   const project: Project = {
     name: data.name,
     totalFeedEntries: data.num_of_records,
-    topTenFeedEntries: data.feeds
-      .slice(0, 10)
-      .map((device: { device_id: any; gps_lat: any; gps_lon: any }) => ({
+    topTenFeedEntries: pagedFeeds.map(
+      (device: { device_id: any; gps_lat: any; gps_lon: any }) => ({
         deviceId: device.device_id,
         latitude: device.gps_lat,
         longitude: device.gps_lon,
-      })),
+      })
+    ),
   } as Project;
 
   return project;
@@ -36,10 +54,13 @@ interface Params {
 
 interface ProjectProps {
   params: Params;
+  page: number;
 }
 
-export default async function ProjectPage({ params }: ProjectProps) {
-  const project = await getProject(params.name);
+export default async function ProjectPage({ params, searchParams }: any) {
+  // const searchParams = useSearchParams()!;
+
+  const project = await getProject(params.name, searchParams.page);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -60,6 +81,7 @@ export default async function ProjectPage({ params }: ProjectProps) {
               latitude={entry.latitude}
               longitude={entry.longitude}
             />
+            // <Link href={`/projects/${entry.deviceId}`}>
           ))}
       </div>
     </main>
