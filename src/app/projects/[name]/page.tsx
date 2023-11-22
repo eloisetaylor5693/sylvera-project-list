@@ -54,12 +54,9 @@ interface Params {
 
 interface ProjectProps {
   params: Params;
-  page: number;
 }
 
 export default async function ProjectPage({ params, searchParams }: any) {
-  // const searchParams = useSearchParams()!;
-
   const project = await getProject(params.name, searchParams.page);
 
   return (
